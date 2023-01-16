@@ -2,6 +2,7 @@
 
 @section("edit")
     <form action="/admin/services/edit/{{ $id }}" method="post">
+        @method('put')
         @csrf
 
         <div class="mb-3">

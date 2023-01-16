@@ -48,4 +48,18 @@ class ServicesController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Request $request)
+    {
+        $service = Service::find($request->id);
+
+        if(!$service) {
+            return abort(404);
+        }
+
+        $service->delete();
+
+        return redirect()->back();
+        dd($service);
+    }
 }

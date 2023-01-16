@@ -12,10 +12,12 @@
                         <h5 class="card-title">{{ $service->title }}</h5>
                         <p class="card-text">{{ $service->description }}</p>
                         <p class="card-text">{{ $service->price }}$</p>
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="/admin/services/edit/{{ $service->id }}" class="btn btn-success">Edit</a>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+                        <a href="/admin/services/edit/{{ $service->id }}" class="btn btn-success mb-2">Edit</a>
+                        <form action="/admin/service/delete" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $service->id }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             @endforeach

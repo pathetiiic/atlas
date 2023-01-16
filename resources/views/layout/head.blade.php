@@ -13,7 +13,6 @@
 
     <div class="container mt-5">
         @yield('card')
-        @yield('card1')
     </div>
 
 </body>
