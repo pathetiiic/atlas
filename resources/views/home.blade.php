@@ -7,7 +7,7 @@
     <div class="d-flex flex-wrap">
         @foreach ($services as $service)
             <div class="card ms-3" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{ asset('storage/' . $service->image) }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $service->title }}</h5>
                     <p class="card-text">{{ $service->description }}</p>

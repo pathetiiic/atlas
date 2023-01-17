@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class ServicesController extends Controller
@@ -27,12 +28,15 @@ class ServicesController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only('title', 'description', 'price');
+        $data = $request->only('title', 'description', 'price', 'image');
+
+        $image = Storage::put('/images', $data['image']);
 
         $services = Service::create([
             'title' => $data['title'],
             'description' => $data['description'],
-            'price' => $data['price']
+            'price' => $data['price'],
+            'image' => $image
         ]);
 
         return redirect()->back();

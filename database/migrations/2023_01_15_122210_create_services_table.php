@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title', 50)->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('price')->nullable();
+            $table->string('image', 100)->nullable();
             $table->timestamps();
         });
     }
